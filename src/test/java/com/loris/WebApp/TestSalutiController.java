@@ -47,5 +47,13 @@ public class TestSalutiController {
                 .andDo(print());
     }
 
-
+    @Test
+    public void testGetSaluti2() throws Exception{
+        mvc.perform(get("/api/saluti/Loris")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$")
+                        .value("Saluti, Loris sono il tuo webService"))
+                .andDo(print());
+    }
 }
